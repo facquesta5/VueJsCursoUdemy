@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ somar() }}<br>
+        {{ subtrair()}}<br>
+        {{ multiplicar() }}<br>
+        {{ dividir() }}<br>
+    </div>
+    
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                n1:10,
+                n2:5
+            },
+            methods:{
+                somar: function somar(){ //convencional
+                    return this.n1 + this.n2;
+                },
+                subtrair: function(){//anonima
+                    return this.n1 - this.n2;
+                },
+                multiplicar: () =>{//arow function
+                    //console.log(this)
+                    return this.n1 * this.n2; //As arow funcrions não são indicadas para a criação de metodos,
+                    // isso por que no contexto léxico, elas não fazem referência ao escopo do objeto, elas fazem referência a instância
+                    // de window ou seja o objeto global do navegador
+                },
+                dividir() { // forma enxuta
+                    let f = () => {
+                        console.log('*******', this);
+                        return 'Teste';
+                    }
+                    console.log(f());
+                    //console.log(this)//nesse caso o contexto é a instância de Vue
+                    return this.n1 / this.n2;
+                }
+            }
+        }) //vm = a ViewModel
+        console.log(vm);
+    </script>
+</body>
+</html>

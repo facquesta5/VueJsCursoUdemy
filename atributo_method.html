@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{ somar() }}<br>
+        {{ subtrair()}}<br>
+        {{ multiplicar() }}<br>
+        {{ dividir() }}<br>
+        {{ numeroAleatorio() }}<br>
+    </div>
+    
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {},
+            methods:{
+                somar: function somar(){ //convencional
+                    return 4 + 2;
+                },
+                subtrair: function(){//anonima
+                    return 4 - 2;
+                },
+                multiplicar: () =>{//arow function
+                    return 4 * 2;
+                },
+                dividir() { // forma enxuta
+                    return 4 / 2;
+                },
+                numeroAleatorio(){//forma mais enxuta de definir os pares de chave/valor
+                    return Math.random();
+                }
+            }
+        }) //vm = a ViewModel
+        console.log(vm);
+    </script>
+</body>
+</html>

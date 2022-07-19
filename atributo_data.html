@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        
+        {{perfil.projetos[1].nome}}
+
+    </div>
+    
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                mensagem: 'Primeiro template controlado pelo Vue',
+                valorTotal: 150.47,
+                logado: false,
+                amigos: [
+                    'João',
+                    'Roberto',
+                    'Maria',
+                    'Natália',
+                    'Gabriel'
+                ],
+                perfil: {
+                    nome:'Fernando Queiroz',
+                    site: 'brasindoor.com.br',
+                    idade: 39,
+                    profissão: 'Desenvolvedor Web',
+                        projetos: [
+                            {
+                                nome: 'Annunziata',
+                                technologias: 'Html, css, javascript'
+                            },
+                            {
+                                nome: 'Brasindoor',
+                                technologias: 'Html, css, javascript, jquery, MYSQL, PHP.5.6'
+                            },
+                            {
+                                nome: 'Sistemas Vitais',
+                                technologias: 'Html, css, javascript, jquery, MYSQL, PHP.5.6, Laravel-8'
+                            }
+                        ]
+                }
+            } 
+        }) //vm = a ViewModel
+        console.log(vm);
+    </script>
+</body>
+</html>
