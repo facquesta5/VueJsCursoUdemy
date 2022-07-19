@@ -17,8 +17,8 @@
     <div id="app"> 
         <a v-bind:href="site"></a>
         <p v-bind:class="cor">Entendendo a diretiva v-bind</p>
-        <input type="text"  v-bind:value="valor">
-        <input type="checkbox" >
+        <input type="text" v-bind:placeholder="instrucaoDePreenchimento" v-bind:value="valor">
+        <input type="checkbox" v-bind:checked="check">
     </div>
 
     <script>
@@ -28,7 +28,8 @@
                 site: 'http://ferqueacq.com.br',
                 cor: 'verde',
                 instrucaoDePreenchimento: 'Placeholder - Diretiva v-bind',
-                valor: 'Entendendo a diretiva v-bind'
+                valor: 'Entendendo a diretiva v-bind',
+                check: true
             },
             methods:{
 
