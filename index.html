@@ -17,7 +17,7 @@
 </head>
 <body>
     <div id="app"> 
-       <input type="text" v-on:keyup="imprimirTexto()">
+       <input type="text" v-on:keyup="imprimirTexto('Enviando parâmetro', 5)">
        <button @click="mensagemAlerta()">Botão</button>
        <!-- V-on bind para manipulação de eventos
         O @ é a forma abreviada do v-on -->
@@ -27,11 +27,13 @@
         const vm = new Vue({
             el: '#app',
             data: {
-                
+                x: true
             },
             methods:{
-                imprimirTexto(){
-                    console.log('teste')
+                imprimirTexto(texto, numero, x){
+                    console.log(texto)
+                    console.log(numero)
+                    console.log(this.x)
                 },
                 mensagemAlerta(){
                     alert('mensagem de alerta')
