@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <title>Document</title>
+    <style>
+        .verde{
+            background-color:olivedrab;
+        }
+        .azul{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"> 
+       <input type="text" v-on:keyup="imprimirTexto('Enviando parâmetro', 5)">
+       <button @click="mensagemAlerta()">Botão</button>
+       <!-- V-on bind para manipulação de eventos
+        O @ é a forma abreviada do v-on -->
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                x: true
+            },
+            methods:{
+                imprimirTexto(texto, numero, x){
+                    console.log(texto)
+                    console.log(numero)
+                    console.log(this.x)
+                },
+                mensagemAlerta(){
+                    alert('mensagem de alerta')
+                }
+            }
+        }) 
+    </script>
+</body>
+</html>
