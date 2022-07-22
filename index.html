@@ -43,34 +43,47 @@
 
 <body>
     <div id="app">
-        <div class="borda div-principal" :class="cor">
-            Cor: {{ cor }}<br>
-            Posição X do mouse: {{ posicaoX }}
-            Posição Y do mouse: {{ posicaoY }}
-        </div>
-        <hr>
-        <div @click="mudarCor('verde')" class="borda div-comum"></div>
-        <div @mouseover="mudarCor('azul')" class="borda div-comum"  @mouseout="mudarCor('vermelho')">
-        </div>
-        <div @mousemove="coordenadas($event)" class="borda div-comum"></div>
-
+        <a 
+        href="http://www.brasindoor.com.br" target="_blank" 
+        @click="prevenirComportamentoPadrao">
+            Link
+        </a>
+        <br>
+            Mensagem: {{ msg }}
+            <hr>
+            <button @click.once="executarUmaVez()">botão</button>
+            <p>Cliques: {{ cliques }}</p>
+            <hr>
+            <form @submit.prevent.once="prevenirUmaVez()" action="">
+                <button type="submit">Enviar</button>
+            </form>
+            <p>Formulário: {{ formulario }}</p>
+            <hr>
+            <input @keyup.Enter.Shift="capturandoTeclas($event)" type="text">
+            <p>Teclas: {{ teclas }}</p>
     </div>
 
     <script>
         const vm = new Vue({
             el: '#app',
             data: {
-                cor: 'branco',
-                posicaoX: 0,
-                posicaoY: 0 
+                msg: '' ,
+                cliques: 0,
+                formulario: '',
+                teclas: '' 
             },
             methods: {
-                mudarCor(cor) {
-                    this.cor = cor
+                prevenirComportamentoPadrao(){
+                    this.msg = 'Comportamento padrão ativado'
                 },
-                coordenadas(e){
-                    this.posicaoX = e.clientX
-                    this.posicaoY = e.clientY
+                executarUmaVez(){
+                    this.cliques++
+                },
+                prevenirUmaVez(){
+                    this.formulario = 'Prevenindo o comportamento padrão'
+                },
+                capturandoTeclas(event){
+                    this.teclas = event.key
                 }
             }
         }) 
